@@ -3,8 +3,8 @@
 using namespace std;
 
 int A(int argc, char **argv){
-  argv[0] = (char *)"A";
-  int get_file = execv("rgen", argv);
+  argv[0] = (char *)"a";
+  int get_file = execv("a", argv);
   if (get_file == -1){
     std::cerr << "Error: not executed";
   }
