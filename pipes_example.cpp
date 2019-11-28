@@ -1,9 +1,11 @@
-#include<iostream>
-#include<unistd.h>
-#include<vector>
-#include<signal.h>
-#include<csignal>
+#include <string>
+#include <iostream>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <signal.h>
+#include <csignal>
+#include <vector>
+
 using namespace std;
 
 int A(int argc, char **argv){
@@ -33,14 +35,15 @@ int main(int argc, char **argv){
   int mainToA[2];
   pipe(mainToA);
   
-  pid_t c_pid = fork();
+  pid_t c_pid 
+  c_pid = fork();
   if(c_pid == 0){
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
     return A(argc, argv);
   }
-  else {
+  else if(c_pid < 0){
     std::cout << "Error: error in executing fork!";
   }  
   children.push_back(c_pid);
