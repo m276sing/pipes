@@ -2,7 +2,7 @@
 #include<unistd.h>
 #include<vector>
 #include<signal.h>
-#inclde<csignal>
+#include<csignal>
 using namespace std;
 
 int A(int argc, char **argv){
@@ -17,7 +17,7 @@ int A(int argc, char **argv){
 int main(int argc, char **argv){
   std::cout << "main";
   std::vector <pid_t> children;
-  int AtoB[2];
+  int mainToA[2];
   pipe(mainToA);
   
   pid_t c_pid = fork();
@@ -30,6 +30,8 @@ int main(int argc, char **argv){
   else {
     std::cout << "Error: error in executing fork!";
   }
+  
+  children.push_back(c_pid);
   
   for (pid_t i : children) {
 
