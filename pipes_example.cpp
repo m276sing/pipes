@@ -73,16 +73,5 @@ int main(int argc, char **argv)
   children.push_back(c_pid);
   c_pid = 0;
  
-
-  
-  for (pid_t i : children) {
-
-        int status;
-
-        kill (i, SIGTERM);
-
-        waitpid(i, &status, 0);
-
-    }
   return 0;
 }
