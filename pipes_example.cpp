@@ -36,10 +36,11 @@ int main(int argc, char **argv){
   int aTob[2];
   pipe(aTob);
   
+  
   pid_t c_pid;
   c_pid = fork();
   
-  std::cout << getpid;
+  std::cout << getpid <<"\n";
   if(c_pid == 0){
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
@@ -68,6 +69,7 @@ int main(int argc, char **argv){
     std::cout << "Error: error in executing fork!\n";
   }
   children.push_back(c_pid);
+  c_pid = 0;
   
   
   
