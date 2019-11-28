@@ -90,8 +90,10 @@ int main(int argc, char **argv)
 
 
     pid_t c_pid;
+    sleep(1);
     std::cout <<"before";
     c_pid = fork(); //created a child process
+  sleep(1);
     std::cout <<"after";
 
 
