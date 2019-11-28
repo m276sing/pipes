@@ -16,7 +16,7 @@ int A(int argc, char **argv){
 }
 
 int B(void){
-  argv[2];
+  char *argv[2];
   argv[0] = (char *)"b";
   argv[1] = nullptr;
   int get_file = execv("b", argv);
@@ -47,13 +47,13 @@ int main(int argc, char **argv){
   
   int aTob[2];
   pipe(aTob);
-  pid_t c_pid = fork();
+  c_pid = fork();
   if(c_pid == 0){
-    dup2(mainToA[o],STDIN_FILENO);
+    dup2(mainToA[0],STDIN_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
     
-    dup2(aTob[o],STDOUT_FILENO);
+    dup2(aTob[0],STDOUT_FILENO);
     close(aTob[0]);
     close(aTob[1]);
     
