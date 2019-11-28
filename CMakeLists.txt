@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(pipes)
+project(pipes1)
 
 ## ECE650 Specific configuration start here
 ## Project specific configurations go here
@@ -14,7 +14,7 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
 
 # create the main executable
 ## add additional .cpp files if needed
-add_executable(pipes pipes_example.cpp)
+add_executable(pipe pipes_example.cpp)
 add_executable(a a.cpp)
 add_executable(b b.cpp)
 
