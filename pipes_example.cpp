@@ -92,7 +92,7 @@ int main(int argc, char **argv)
     pid_t c_pid;
 
     c_pid = fork(); //created a child process
-
+    
 
 
     if (c_pid == 0) {
@@ -104,7 +104,7 @@ int main(int argc, char **argv)
         close(rgentoA1[1]);
 
         
-
+        std::cout << "here";
         close(a1Toa2[0]);
 
         close(a1Toa2[1]); 
