@@ -30,13 +30,15 @@ int B(void){
 
 
 int main(int argc, char **argv){
-  std::cout << "main";
   std::vector <pid_t> children;
   int mainToA[2];
   pipe(mainToA);
+  int aTob[2];
+  pipe(aTob);
   
   pid_t c_pid;
   c_pid = fork();
+  std::cout << getpid;
   if(c_pid == 0){
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
@@ -44,12 +46,11 @@ int main(int argc, char **argv){
     return A(argc, argv);
   }
   else if(c_pid < 0){
-    std::cout << "Error: error in executing fork!";
+    std::cout << "Error: error in executing fork!\n";
   }  
   children.push_back(c_pid);
   
-  int aTob[2];
-  pipe(aTob);
+  
   c_pid = fork();
   if(c_pid == 0){
     dup2(mainToA[0],STDIN_FILENO);
@@ -63,7 +64,7 @@ int main(int argc, char **argv){
     return B();
   }
   else {
-    std::cout << "Error: error in executing fork!";
+    std::cout << "Error: error in executing fork!\n";
   }
   children.push_back(c_pid);
   
