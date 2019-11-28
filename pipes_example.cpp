@@ -39,7 +39,7 @@ int main(int argc, char **argv){
   pid_t c_pid;
   c_pid = fork();
   std::cout << getpid;
-  if(c_pid == 0){
+  if(c_pid == 1){
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
@@ -52,7 +52,7 @@ int main(int argc, char **argv){
   
   
   c_pid = fork();
-  if(c_pid == 0){
+  if(c_pid == 1){
     dup2(mainToA[0],STDIN_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
