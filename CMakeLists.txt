@@ -17,3 +17,5 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
 add_executable(pipes pipes_example.cpp)
 add_executable(a a.cpp)
 add_executable(b b.cpp)
+
+install(TARGETS a b pipes RUNTIME DESTINATION bin)
