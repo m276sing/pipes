@@ -72,6 +72,7 @@ int main(int argc, char **argv)
   }
   else if(c < 0){
     std::cout << "Error: error in executing fork!\n";
+    return 1;
   }  
   children.push_back(c);
   
@@ -90,6 +91,7 @@ int main(int argc, char **argv)
   }
   else {
     std::cout << "Error: error in executing fork!\n";
+    return 1;
   }
   children.push_back(c);
   c = 0;
