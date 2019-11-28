@@ -50,7 +50,7 @@ int get_input(void) {
 
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
   
   std::vector <pid_t> children;
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
-    return A(argc, argv);
+    return A();
   }
   else if(c < 0){
     std::cout << "Error: error in executing fork!\n";
