@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     std::cout <<"before";
     c_pid = fork(); //created a child process
   sleep(1);
-    std::cout <<"after";
+    std::cout <<"after" << c_pid;
 
 
     if (c_pid == 0) {
@@ -130,6 +130,20 @@ int main(int argc, char **argv)
     children.push_back(c_pid);
   std::cout <<"last";
   c_pid = 0;
+  
+  dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
+
+    close(a1Toa2[0]);
+
+    close(a1Toa2[1]);
+
+    
+
+    close(a1Toa2[0]);
+
+    close(a1Toa2[1]); 
+
+    int output = get_input(); // to send s to a2
   
   for (pid_t i : children) {
 
