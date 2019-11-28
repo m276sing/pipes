@@ -90,9 +90,9 @@ int main(int argc, char **argv)
 
 
     pid_t c_pid;
-
+    std::cout <<"before";
     c_pid = fork(); //created a child process
-    
+    std::cout <<"after";
 
 
     if (c_pid == 0) {
@@ -126,6 +126,7 @@ int main(int argc, char **argv)
 
 
     children.push_back(c_pid);
+  std::cout <<"last";
   c_pid = 0;
   
   for (pid_t i : children) {
