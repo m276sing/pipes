@@ -1,5 +1,5 @@
 #include <iostream>
 
 int main(){
-  std::cout << "a process executing/n";
+  std::cout << "a process executing\n";
 }
