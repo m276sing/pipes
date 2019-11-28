@@ -109,7 +109,7 @@ int main(int argc, char **argv)
 
         close(a1Toa2[1]); 
 
-        return rgen(argc, argv);
+        return A(argc, argv);
 
 
 
