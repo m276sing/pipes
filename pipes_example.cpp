@@ -117,7 +117,7 @@ int main(int argc, char **argv)
 
     }
 
-    else if (c_pid < 0) {
+    else if (c_pid > 0) {
 
         std::cerr << "Error: Fork request could not be completed." << std::endl;
 
