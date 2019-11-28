@@ -8,8 +8,10 @@
 
 using namespace std;
 
-int A(int argc, char **argv){
+int A(void){
+  char *argv[2];
   argv[0] = (char *)"a";
+  argv[1] = nullptr;
   int get_file = execv("a", argv);
   if (get_file == -1){
     std::cerr << "Error: not executed";
