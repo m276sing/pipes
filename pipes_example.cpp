@@ -30,7 +30,7 @@ int B(void){
 
 
 int main(int argc, char **argv){
-  /*std::vector <pid_t> children;
+  std::vector <pid_t> children;
   int mainToA[2];
   pipe(mainToA);
   int aTob[2];
@@ -68,55 +68,8 @@ int main(int argc, char **argv){
     std::cout << "Error: error in executing fork!\n";
   }
   children.push_back(c_pid);
-  */
-  std::vector<pid_t> children;
-
-    int rgentoA1[2];
-
-    pipe(rgentoA1); // pipe created from random number generator to the Assignemnt 1
-
-
-
-    int a1Toa2[2];
-
-    pipe(a1Toa2); // pipe created from Assignment 1 to Assignment 2
-
-
-
-    pid_t c_pid;
-
-    c_pid = fork(); //created a child process
-
-
-
-    if (c_pid == 0) {
-
-        dup2(rgentoA1[1], STDOUT_FILENO); //outputs the data from rgen to A1
-
-        close(rgentoA1[0]);
-
-        close(rgentoA1[1]);
-
-        
-
-        close(a1Toa2[0]);
-
-        close(a1Toa2[1]); 
-
-        return A(argc, argv);
-
-
-
-    }
-
-    else if (c_pid < 0) {
-
-        std::cerr << "Error: Fork request could not be completed." << std::endl;
-
-        return 1;
-
-    }
-  children.push_back(c_pid); // pid is pushed into vector
+  
+  
   
   for (pid_t i : children) {
 
