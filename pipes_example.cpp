@@ -60,24 +60,24 @@ int main(int argc, char **argv)
   pipe(aTob);
   
   
-  pid_t c_pid;
-  c_pid = fork();
+  pid_t c;
+  c = fork();
   
   std::cout << getpid <<"\n";
-  if(c_pid == 0){
+  if(c == 0){
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
     return A(argc, argv);
   }
-  else if(c_pid < 0){
+  else if(c < 0){
     std::cout << "Error: error in executing fork!\n";
   }  
-  children.push_back(c_pid);
+  children.push_back(c);
   
   
-  c_pid = fork();
-  if(c_pid == 0){
+  c = fork();
+  if(c == 0){
     dup2(mainToA[0],STDIN_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
@@ -91,8 +91,8 @@ int main(int argc, char **argv)
   else {
     std::cout << "Error: error in executing fork!\n";
   }
-  children.push_back(c_pid);
-  c_pid = 0;
+  children.push_back(c);
+  c = 0;
  
   int output = get_input(); // to send s to a2
 
