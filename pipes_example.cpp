@@ -1,5 +1,8 @@
 #include<iostream>
 #include<unistd.h>
+#include<vector>
+#include<signal.h>
+#inclde<csignal>
 using namespace std;
 
 int A(int argc, char **argv){
