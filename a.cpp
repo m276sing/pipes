@@ -1,5 +1,7 @@
 #include <iostream>
 
 int main(){
-  std::cout << "a process executing\n";
+  std::string s;
+  std::getline(std::cin, s);
+  std::cout << s << "a is executing\n";
 }
