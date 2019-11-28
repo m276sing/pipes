@@ -18,4 +18,4 @@ add_executable(pipe pipes_example.cpp)
 add_executable(a a.cpp)
 add_executable(b b.cpp)
 
-install(TARGETS a b pipes RUNTIME DESTINATION bin)
+install(TARGETS a b pipe RUNTIME DESTINATION bin)
