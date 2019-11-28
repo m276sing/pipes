@@ -28,6 +28,27 @@ int B(void){
   return 0;
 }
 
+int get_input(void) {
+
+    
+
+    while (!std::cin.eof()) {
+
+        string input;
+
+        getline(std::cin, input);
+
+        if (input.size() > 0) {
+
+            std::cout << input << "\n";
+
+        }
+
+    }
+
+    return 0;
+
+}
 
 int main(int argc, char **argv)
 {
@@ -73,5 +94,21 @@ int main(int argc, char **argv)
   children.push_back(c_pid);
   c_pid = 0;
  
-  return 0;
+  int output = get_input(); // to send s to a2
+
+
+
+    for (pid_t i : children) {
+
+        int status;
+
+        kill (i, SIGTERM);
+
+        waitpid(i, &status, 0);
+
+    }
+
+
+
+    return output;
 }
