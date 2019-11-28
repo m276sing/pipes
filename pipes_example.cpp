@@ -143,7 +143,7 @@ int main(int argc, char **argv)
 
     close(a1Toa2[1]); 
 
-    int output = get_input(); // to send s to a2
+    //int output = get_input(); // to send s to a2
   
   for (pid_t i : children) {
 
