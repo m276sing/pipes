@@ -31,7 +31,7 @@ int B(void){
 
 int main(int argc, char **argv)
 {
-  /*
+  
   std::vector <pid_t> children;
   int mainToA[2];
   pipe(mainToA);
@@ -72,78 +72,8 @@ int main(int argc, char **argv)
   }
   children.push_back(c_pid);
   c_pid = 0;
-  
-  */
-  
-  std::vector<pid_t> children;
+ 
 
-    int rgentoA1[2];
-
-    pipe(rgentoA1); // pipe created from random number generator to the Assignemnt 1
-
-
-
-    int a1Toa2[2];
-
-    pipe(a1Toa2); // pipe created from Assignment 1 to Assignment 2
-
-
-
-    pid_t c_pid;
-    sleep(1);
-    std::cout <<"before";
-    c_pid = fork(); //created a child process
-  sleep(1);
-    std::cout <<"after" << c_pid;
-
-
-    if (c_pid == 0) {
-
-        dup2(rgentoA1[1], STDOUT_FILENO); //outputs the data from rgen to A1
-
-        close(rgentoA1[0]);
-
-        close(rgentoA1[1]);
-
-        
-        std::cout << "here";
-        close(a1Toa2[0]);
-
-        close(a1Toa2[1]); 
-
-        return A(argc, argv);
-
-
-
-    }
-
-    else if (c_pid > 0) {
-
-        std::cerr << "Error: Fork request could not be completed." << std::endl;
-
-        return 1;
-
-    }
-
-
-
-    children.push_back(c_pid);
-  std::cout <<"last";
-  c_pid = 0;
-  
-  dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
-
-    close(a1Toa2[0]);
-
-    close(a1Toa2[1]);
-
-    
-
-    close(a1Toa2[0]);
-
-    close(a1Toa2[1]); 
-
-    //int output = get_input(); // to send s to a2
   
   for (pid_t i : children) {
 
