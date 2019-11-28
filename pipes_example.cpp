@@ -3,6 +3,7 @@
 #include<vector>
 #include<signal.h>
 #include<csignal>
+#include <sys/wait.h>
 using namespace std;
 
 int A(int argc, char **argv){
