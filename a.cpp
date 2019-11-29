@@ -5,6 +5,6 @@ int main(){
   std::getline(std::cin, s);
   std::cout << s << " " << "a is executing\n";
   fflush(stdout);
-  sleep(wait_period_new);
+  sleep(2);
   return 0;
 }
