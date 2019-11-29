@@ -53,48 +53,26 @@ int get_input(void) {
 }
 
 int main(void)
-{
-  
+{  
   std::vector <pid_t> children;
-  int mainToA[2];
-  pipe(mainToA);
   int aTob[2];
   pipe(aTob);
   
+  pid_t child_id;
+  child_id = fork();
   
-  pid_t c;
-  c = fork();
-  
-  std::cout << getpid <<"\n";
-  if (c == 0) {
+  if (child_pid == 0) {
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
     return A();
   }
-  else if(c < 0){
+  else if(child_id < 0){
     std::cout << "Error: error in executing fork!\n";
     return 1;
   }  
-  children.push_back(c);
-  c = fork();
-  if (c == 0) {
-    dup2(mainToA[0],STDIN_FILENO);
-    close(mainToA[0]);
-    close(mainToA[1]);
-    
-    dup2(aTob[0],STDOUT_FILENO);
-    close(aTob[0]);
-    close(aTob[1]);
-    
-    return B();
-  }
-  else {
-    std::cout << "Error: error in executing fork!\n";
-    return 1;
-  }
-  children.push_back(c);
-  c = 0;
+  children.push_back(child_id);
+  child_id = 0;
  
   int output = get_input(); // to send s to a2
 
