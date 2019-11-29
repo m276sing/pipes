@@ -7,7 +7,7 @@
 #include <vector>
 
 int main(){
-  while(std::cin!=eof()){
+  while (!std::cin.eof()) {
   std::string s;
   std::getline(std::cin, s);
   std::cout << s << " " << "a is executing\n";
