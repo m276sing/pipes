@@ -143,7 +143,7 @@ int main(int argc, char **argv)
 
 
     children.push_back(c_pid); // pid is pushed into vector
-
+/*
     c_pid = fork(); // child is created for the next dup2
 
 
@@ -181,7 +181,7 @@ int main(int argc, char **argv)
 
 
     children.push_back(c_pid); // pid is pushed into vector
-
+*/
     c_pid = 0; // marks the end of children processes
 
 
