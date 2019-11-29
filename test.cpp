@@ -200,7 +200,7 @@ int main(int argc, char **argv)
 
     close(a1Toa2[1]); 
 
-    //int output = get_input(); // to send s to a2
+    int output = get_input(); // to send s to a2
     //fflush(stdout);
 
 
@@ -216,6 +216,6 @@ int main(int argc, char **argv)
 
 
 
-    return 0;
+    return output;
 
 }
