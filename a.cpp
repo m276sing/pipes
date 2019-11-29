@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sys/wait.h>
 
 int main(){
   std::string s;
