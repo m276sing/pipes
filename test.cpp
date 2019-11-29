@@ -188,11 +188,11 @@ int main(int argc, char **argv)
 
     //main function executes the final result instead of the child processes
 
-    //dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
+    dup2(rgentoA1[1], STDOUT_FILENO); //outputs the result to the standard output
 
-    close(a1Toa2[0]);
+    close(rgentoA1[0]);
 
-    close(a1Toa2[1]);
+    close(rgentoA1[1]);
 
     
 
