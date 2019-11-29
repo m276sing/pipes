@@ -1,5 +1,4 @@
 #include <memory>
-#include "minisat/core/SolverTypes.h"
 #include "minisat/core/Solver.h"
 #include <vector>
 #include <iostream>
