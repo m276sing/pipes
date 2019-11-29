@@ -1,5 +1,10 @@
+#include <string>
 #include <iostream>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <signal.h>
+#include <csignal>
+#include <vector>
 
 int main(){
   std::string s;
