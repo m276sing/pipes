@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(pipes1)
+project(project)
 
 ## ECE650 Specific configuration start here
 ## Project specific configurations go here
