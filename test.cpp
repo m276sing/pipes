@@ -20,7 +20,7 @@ using namespace std;
 
 
 
-int apro(int argc, char **argv) { 
+int rgen(int argc, char **argv) { 
 
     argv[0] = (char*) "a";;
 
@@ -37,7 +37,36 @@ int apro(int argc, char **argv) {
 }
 
 
-int bpro(void) {
+
+int assignment_1(void) {
+
+    char* argv[3];
+
+    argv[0] = (char*) "python";
+
+    argv[1] = (char*) "-u";
+
+    argv[2] = (char*) "./ece650-a1.py";
+
+    argv[3] = nullptr;
+
+
+
+    int get_file = execvp("python", argv);
+
+    if (get_file == -1) {
+
+        std::cerr << "Error: Unable to execute Assignment 1 file" << "\n";
+
+    }
+
+    return 0;
+
+}
+
+
+
+int assignment_2(void) {
 
     char* args2[2];
 
@@ -91,15 +120,15 @@ int main(int argc, char **argv)
 
     std::vector<pid_t> children;
 
-    int atob[2];
+    int rgentoA1[2];
 
-    pipe(atob); // pipe created from random number generator to the Assignemnt 1
+    pipe(rgentoA1); // pipe created from random number generator to the Assignemnt 1
 
 
 
-    int btoa[2];
+    int a1Toa2[2];
 
-    pipe(btoa); // pipe created from Assignment 1 to Assignment 2
+    pipe(a1Toa2); // pipe created from Assignment 1 to Assignment 2
 
 
 
@@ -111,19 +140,19 @@ int main(int argc, char **argv)
 
     if (c_pid == 0) {
 
-        dup2(atob[1], STDOUT_FILENO); //outputs the data from rgen to A1
+        dup2(rgentoA1[1], STDOUT_FILENO); //outputs the data from rgen to A1
 
-        close(atob[0]);
+        close(rgentoA1[0]);
 
-        close(atob[1]);
+        close(rgentoA1[1]);
 
         
 
-        close(btoa[0]);
+        close(a1Toa2[0]);
 
-        close(btoa[1]); 
+        close(a1Toa2[1]); 
 
-        return apro(argc, argv);
+        return rgen(argc, argv);
 
 
 
@@ -147,21 +176,21 @@ int main(int argc, char **argv)
 
     if (c_pid == 0) {
 
-        dup2(atob[0], STDIN_FILENO); // input from rgen to A1
+        dup2(rgentoA1[0], STDIN_FILENO); // input from rgen to A1
 
-        close(atob[0]);
+        close(rgentoA1[0]);
 
-        close(atob[1]);
+        close(rgentoA1[1]);
 
 
 
-       //dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
+       dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
 
-        //close(a1Toa2[0]);
+        close(a1Toa2[0]);
 
-        //close(a1Toa2[1]);
+        close(a1Toa2[1]);
 
-        return bpro();
+        return assignment_1();
 
 
 
@@ -178,7 +207,7 @@ int main(int argc, char **argv)
 
 
     children.push_back(c_pid); // pid is pushed into vector
-/*
+
     c_pid = fork(); // child is created for the next dup2
 
 
@@ -208,13 +237,24 @@ int main(int argc, char **argv)
 
 
     children.push_back(c_pid); // pid is pushed into vector
-*/
+
     c_pid = 0; // marks the end of children processes
 
 
 
     //main function executes the final result instead of the child processes
 
+    dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
+
+    close(a1Toa2[0]);
+
+    close(a1Toa2[1]);
+
+    
+
+    close(a1Toa2[0]);
+
+    close(a1Toa2[1]); 
 
     int output = get_input(); // to send s to a2
 
