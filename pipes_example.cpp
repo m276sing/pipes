@@ -90,5 +90,5 @@ int main(void)
 
 
 
-    return output;
+    return 0;
 }
