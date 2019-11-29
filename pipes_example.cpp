@@ -74,7 +74,7 @@ int main(void)
   children.push_back(child_id);
   child_id = 0;
  
-  int output = get_input(); // to send s to a2
+  //int output = get_input(); // to send s to a2
 
 
 
