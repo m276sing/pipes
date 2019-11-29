@@ -38,33 +38,6 @@ int rgen(int argc, char **argv) {
 
 
 
-int assignment_1(void) {
-
-    char* argv[3];
-
-    argv[0] = (char*) "python";
-
-    argv[1] = (char*) "-u";
-
-    argv[2] = (char*) "./ece650-a1.py";
-
-    argv[3] = nullptr;
-
-
-
-    int get_file = execvp("python", argv);
-
-    if (get_file == -1) {
-
-        std::cerr << "Error: Unable to execute Assignment 1 file" << "\n";
-
-    }
-
-    return 0;
-
-}
-
-
 
 int assignment_2(void) {
 
@@ -184,41 +157,11 @@ int main(int argc, char **argv)
 
 
 
-       dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
+       //dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
 
         close(a1Toa2[0]);
 
         close(a1Toa2[1]);
-
-        return assignment_1();
-
-
-
-    }
-
-    else if (c_pid < 0) {
-
-        std::cerr << "Error: Fork request could not be completed." << std::endl;
-
-        return 1;
-
-    }
-
-
-
-    children.push_back(c_pid); // pid is pushed into vector
-
-    c_pid = fork(); // child is created for the next dup2
-
-
-
-    if (c_pid == 0) {
-
-        dup2(a1Toa2[0], STDIN_FILENO); // input from A1 to A2
-
-        close(a1Toa2[1]);
-
-        close(a1Toa2[0]);
 
         return assignment_2();
 
