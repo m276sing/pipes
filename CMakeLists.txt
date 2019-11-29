@@ -16,4 +16,5 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
 ## add additional .cpp files if needed
 add_executable(pipe_ee pipes_example.cpp)
 add_executable(a a.cpp)
+add_executable(test test.cpp)
 add_executable(b b.cpp)
