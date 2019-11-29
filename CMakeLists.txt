@@ -21,7 +21,7 @@ include_directories(${CMAKE_SOURCE_DIR}/minisat)
 ## add additional .cpp files if needed
 add_executable(project project.cpp)
 add_executable(a a.cpp)
-add_executable(test test.cpp)
+add_executable(testt test.cpp)
 add_executable(b b.cpp)
 
 
