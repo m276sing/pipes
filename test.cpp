@@ -120,7 +120,8 @@ int main(int argc, char **argv)
         close(rgentoA1[1]);
 
         
-
+        dup2(a1Toa2[0], STDOUT_FILENO);
+        
         close(a1Toa2[0]);
 
         close(a1Toa2[1]); 
@@ -157,7 +158,7 @@ int main(int argc, char **argv)
 
 
 
-       //dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
+       dup2(a1Toa2[1], STDOUT_FILENO); // output from A1 to A2
 
         close(a1Toa2[0]);
 
@@ -187,7 +188,7 @@ int main(int argc, char **argv)
 
     //main function executes the final result instead of the child processes
 
-    dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
+    //dup2(a1Toa2[1], STDOUT_FILENO); //outputs the result to the standard output
 
     close(a1Toa2[0]);
 
