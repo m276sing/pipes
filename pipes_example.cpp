@@ -62,9 +62,9 @@ int main(void)
   child_id = fork();
   
   if (child_pid == 0) {
-    dup2(mainToA[1],STDOUT_FILENO);
-    close(mainToA[0]);
-    close(mainToA[1]);
+    dup2(aTob[1],STDOUT_FILENO);
+    close(aTob[0]);
+    close(aTob[1]);
     return A();
   }
   else if(child_id < 0){
