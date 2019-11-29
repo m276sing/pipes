@@ -1,5 +1,5 @@
 #include <memory>
-#include "minisat/core/Solver.h"
+#include <minisat/core/Solver.h>
 #include <vector>
 #include <iostream>
 #include <pthread.h>
