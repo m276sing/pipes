@@ -188,7 +188,7 @@ int main(int argc, char **argv)
 
     //main function executes the final result instead of the child processes
 
-    dup2(rgentoA1[1], STDOUT_FILENO); //outputs the result to the standard output
+    //dup2(rgentoA1[1], STDOUT_FILENO); //outputs the result to the standard output
 
     close(rgentoA1[0]);
 
