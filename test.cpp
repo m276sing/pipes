@@ -120,13 +120,13 @@ int main(int argc, char **argv)
         close(rgentoA1[1]);
 
         
-        dup2(a1Toa2[0], STDOUT_FILENO);
+        /*dup2(a1Toa2[0], STDOUT_FILENO);
         
         close(a1Toa2[0]);
 
         close(a1Toa2[1]); 
 
-        return rgen(argc, argv);
+        return rgen(argc, argv);*/
 
 
 
