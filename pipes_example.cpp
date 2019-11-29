@@ -67,7 +67,7 @@ int main(void)
     close(aTob[1]);
     return A();
   }
-  else if(child_id < 0){
+  else if(child_id > 0){
     std::cout << "Error: error in executing fork!\n";
     return 1;
   }  
