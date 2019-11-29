@@ -15,7 +15,7 @@ set (CMAKE_CXX_FLAGS "-std=c++11 -Wall ${CMAKE_CXX_FLAGS}")
 set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
 
 include_directories(${CMAKE_SOURCE_DIR}/minisat)
-target_link_libraries(pipes minisat-lib-static)
+
 
 # create the main executable
 ## add additional .cpp files if needed
@@ -23,3 +23,6 @@ add_executable(project project.cpp)
 add_executable(a a.cpp)
 add_executable(test test.cpp)
 add_executable(b b.cpp)
+
+
+target_link_libraries(project minisat-lib-static)
