@@ -4,13 +4,18 @@ project(pipes1)
 ## ECE650 Specific configuration start here
 ## Project specific configurations go here
 
-
+if (EXISTS "${CMAKE_SOURCE_DIR}/minisat")
+  add_subdirectory(minisat)
+else()
+  message (FATAL_ERROR "MiniSat not found. Use `git clone https://github.com/agurfinkel/minisat` to check it out.")
+endif()
 
 # enable c++11 support
 set (CMAKE_CXX_FLAGS "-std=c++11 -Wall ${CMAKE_CXX_FLAGS}")
 set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
 
-
+include_directories(${CMAKE_SOURCE_DIR}/minisat)
+target_link_libraries(ece650-a4 minisat-lib-static)
 
 # create the main executable
 ## add additional .cpp files if needed
