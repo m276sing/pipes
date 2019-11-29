@@ -7,12 +7,12 @@
 #include <vector>
 
 int main(){
-  while(true){
+  while(std::cin!=eof()){
   std::string s;
   std::getline(std::cin, s);
   std::cout << s << " " << "a is executing\n";
   //fflush(stdout);
-  sleep(2);
+  //sleep(2);
   }
   return 0;
 }
