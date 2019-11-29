@@ -66,7 +66,7 @@ int main(void)
   c = fork();
   
   std::cout << getpid <<"\n";
-  if(c == 0){
+  if (c == 0) {
     dup2(mainToA[1],STDOUT_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
@@ -77,10 +77,8 @@ int main(void)
     return 1;
   }  
   children.push_back(c);
-  
-  
   c = fork();
-  if(c == 0){
+  if (c == 0) {
     dup2(mainToA[0],STDIN_FILENO);
     close(mainToA[0]);
     close(mainToA[1]);
