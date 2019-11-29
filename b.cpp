@@ -9,7 +9,7 @@
 int main(){
   std::string s;
   std::getline(std::cin, s);
-  std::cout << s;
-  std::cout << "b is ececuting\n";
+  std::cout << s << " ";
+  std::cout << "b is executing\n";
   return 0;
 }
