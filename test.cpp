@@ -200,8 +200,8 @@ int main(int argc, char **argv)
 
     close(a1Toa2[1]); 
 
-    int output = get_input(); // to send s to a2
-    fflush(stdout);
+    //int output = get_input(); // to send s to a2
+    //fflush(stdout);
 
 
     for (pid_t i : children) {
@@ -216,6 +216,6 @@ int main(int argc, char **argv)
 
 
 
-    return output;
+    return 0;
 
 }
