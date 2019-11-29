@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 
     if (c_pid == 0) {
 
-        dup2(rgentoA1[1], STDOUT_FILENO); //outputs the data from rgen to A1
+        //dup2(rgentoA1[1], STDOUT_FILENO); //outputs the data from rgen to A1
 
         close(rgentoA1[0]);
 
@@ -125,8 +125,8 @@ int main(int argc, char **argv)
         close(a1Toa2[0]);
 
         close(a1Toa2[1]); 
-
-        return rgen(argc, argv);*/
+*/
+        return rgen(argc, argv);
 
 
 
