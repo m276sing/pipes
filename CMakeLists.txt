@@ -12,7 +12,8 @@ endif()
 
 # enable c++11 support
 set (CMAKE_CXX_FLAGS "-std=c++11 -Wall ${CMAKE_CXX_FLAGS}")
-set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/run)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 
 include_directories(${CMAKE_SOURCE_DIR}/minisat)
 
