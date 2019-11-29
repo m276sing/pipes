@@ -200,7 +200,7 @@ int main(int argc, char **argv)
     close(a1Toa2[1]); 
 
     int output = get_input(); // to send s to a2
-    fflush(std::cout);
+    fflush(stdout);
 
 
     for (pid_t i : children) {
