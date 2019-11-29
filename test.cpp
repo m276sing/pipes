@@ -215,6 +215,6 @@ int main(int argc, char **argv)
 
 
 
-    return output;
+    return 0;
 
 }
