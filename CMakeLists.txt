@@ -26,5 +26,5 @@ add_executable(testt test.cpp)
 add_executable(b b.cpp)
 add_executable(ran randomdata.cpp)
 
-
+target_link_libraries(ran minisat-lib-static)
 target_link_libraries(project minisat-lib-static)
